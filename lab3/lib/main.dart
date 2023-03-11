@@ -56,7 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column (
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("$_counter"),
+            Text("Значеие инкремента:"),
+            SizedBox(height: 10),
+            Text("$_counter", style: TextStyle(fontSize: 30),),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
