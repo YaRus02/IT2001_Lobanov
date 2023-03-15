@@ -7,6 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -27,6 +29,20 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
+
+  bool pressLike = false;
+  int likeCount = 10;
+
+ void likeBut() {
+    setState(() {
+      pressLike = !pressLike;
+      if (pressLike) {
+        likeCount++;
+      } else {
+        likeCount--;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Icon(Icons.favorite_border),
+              IconButton(onPressed: likeBut, icon: (pressLike) ? Icon(Icons.favorite, color: Colors.green,) : Icon(Icons.favorite_border, color: Colors.green),),
+              Text("$likeCount"),
             ],
           ),
           Row(
@@ -60,9 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
 
             children: [
-              Icon(Icons.phone),
-              Icon(Icons.navigation_outlined),
-              Icon(Icons.share),
+
+              IconButton(onPressed: () {}, icon: Icon(Icons.phone),),
+              IconButton(onPressed: () {}, icon: Icon(Icons.navigation_rounded),),
+              IconButton(onPressed: () {}, icon: Icon(Icons.share_outlined),),
             ],
           ),
           const Expanded(
