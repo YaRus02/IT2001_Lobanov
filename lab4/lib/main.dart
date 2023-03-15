@@ -36,16 +36,42 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column (
         children:[
-          Image(image: NetworkImage ("https://fikiwiki.com/uploads/posts/2022-02/1644855597_24-fikiwiki-com-p-kartinki-khd-kachestva-25.jpg"),),
+          const Image(image: NetworkImage ('https://img.desktopwallpapers.ru/food/pics/wide/1920x1200/d894ea1c6d4ed34fcbca5e088b966f57.jpg'),),
           Row(
-            children: [
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
               Text("Общежитие № 18"),
+
             ],
           ),
-          Text("Краснодар, ул. Калинина, 13/18"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(Icons.favorite_border),
+            ],
+          ),
+          Row(
+            children: const [
+              Text("Краснодар, ул. Калинина, 13/18"),
+            ],
+          ),
+          SizedBox(height: 15,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+            children: [
+              Icon(Icons.phone),
+              Icon(Icons.navigation_outlined),
+              Icon(Icons.share),
+            ],
+          ),
+          const Expanded(
+            child: Text (
+              "FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:"
+            ),
+          )
         ],
       )
-
     );
   }
 }
