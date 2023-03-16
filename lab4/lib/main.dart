@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   bool pressLike = false;
-  int likeCount = 10;
+  int likeCount = 227;
 
  void likeBut() {
     setState(() {
@@ -50,46 +50,61 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column (
+      body: ListView (
         children:[
           const Image(image: NetworkImage ('https://img.desktopwallpapers.ru/food/pics/wide/1920x1200/d894ea1c6d4ed34fcbca5e088b966f57.jpg'),),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("Общежитие № 18"),
-
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconButton(onPressed: likeBut, icon: (pressLike) ? Icon(Icons.favorite, color: Colors.green,) : Icon(Icons.favorite_border, color: Colors.green),),
-              Text("$likeCount"),
-            ],
-          ),
-          Row(
-            children: const [
-              Text("Краснодар, ул. Калинина, 13/18"),
-            ],
-          ),
-          SizedBox(height: 15,),
+          const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-
             children: [
+              Column(
+                children: [
+                  const Text("Общежитие № 18", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0), ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(20.0, 0.0,0.0 ,0.0 ),
+                    child : const Text("Краснодар, ул. Калинина, 13/18", style: TextStyle(color: Colors.grey, fontSize: 10),),
+                  ),
+                ],
 
-              IconButton(onPressed: () {}, icon: Icon(Icons.phone),),
-              IconButton(onPressed: () {}, icon: Icon(Icons.navigation_rounded),),
-              IconButton(onPressed: () {}, icon: Icon(Icons.share_outlined),),
+              ),
+              Column(
+                children: const [
+                  // подгонка под макет
+                  SizedBox(width: 100,),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: likeBut,
+                        icon: (pressLike) ? const Icon(Icons.favorite, color: Colors.red,) : const Icon(Icons.favorite_border, color: Colors.red),
+                      ),
+                      Text("$likeCount", style: const TextStyle(fontSize: 12),),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(onPressed: () {}, icon: const Icon(Icons.phone), color: Colors.green,),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.navigation_rounded), color: Colors.green,),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.share_outlined), color: Colors.green,),
             ],
           ),
           const Expanded(
             child: Text (
-              "FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:"
+              "FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:FSFJKL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:KL:"
             ),
           )
         ],
       )
+
     );
   }
 }
