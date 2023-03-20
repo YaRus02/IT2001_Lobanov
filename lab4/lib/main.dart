@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.phone), color: Colors.green,),
+              IconButton(onPressed: () => launchUrl(Uri.parse("tel://89283111234")), icon: const Icon(Icons.phone), color: Colors.green,),
               IconButton(onPressed: () => launchUrl(Uri.parse('https://yandex.ru/maps/-/CCUSMPwgHC')),
                 icon: const Icon(Icons.navigation_rounded), color: Colors.green,),
               IconButton(onPressed:  () { FlutterShare.share(title: 'Поделиться',
