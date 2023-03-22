@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Список элементов'),
     );
   }
 }
@@ -45,7 +45,13 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (context, int index) {
           BigInt numb = BigInt.from(2);
           BigInt val = numb.pow(index);
-          return Text('2 ^ $index = '  '$val');
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('2 ^ $index = '  '$val'),
+              Divider(),
+            ],
+          );
         }
       )
     );
