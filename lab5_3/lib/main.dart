@@ -43,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView.builder(
         itemBuilder: (context, int index) {
-          int numb = pow(2, index).toInt();
-          return Text('2 ^ $index = ' '$numb');
-
+          BigInt numb = BigInt.from(2);
+          BigInt val = numb.pow(index);
+          return Text('2 ^ $index = '  '$val');
         }
       )
     );
