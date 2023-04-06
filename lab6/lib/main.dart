@@ -19,6 +19,11 @@ void main() => runApp(
 
 class MyFormState extends State{
   final _formKey = GlobalKey<FormState>();
+  double _res = 0;
+  final _numb = TextEditingController();
+  String _inpNumb = '';
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +34,8 @@ class MyFormState extends State{
         child: Column(
           children: <Widget> [
             const Text('Name', style: TextStyle(fontSize: 20.0),),
-            TextFormField(validator: (value){
-              if (value!.isEmpty) return 'Warning';
-              return null;
+            TextFormField(controller: _numb,onChanged: (value) {}, validator: (value){
+              if (double.tryParse(value!) == null) return 'Warning';
             }),
             const SizedBox(height: 20.0),
             ElevatedButton(onPressed: () {
@@ -42,7 +46,8 @@ class MyFormState extends State{
               }
             },
             child: const Text('Check', style: TextStyle(color: Colors.white),),
-            )
+            ),
+            Text('$_numb.text + $_numb.text'),
           ],
         ),
       ),
