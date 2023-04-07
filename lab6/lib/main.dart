@@ -20,16 +20,29 @@ void main() => runApp(
 class MyFormState extends State{
   final _formKey = GlobalKey<FormState>();
   double _res = 0;
-  final _numb = TextEditingController();
-  final _numb2 = TextEditingController();
+  final _length = TextEditingController();
+  final _width = TextEditingController();
+  double width = 0;
+  double length = 0;
 
+  void _convertLeng() {
+    length = double.parse(_length.text);
+  }
 
+  void _convertWid() {
+    width = double.parse(_width.text);
+  }
 
-  
+  void _count() {
+    setState(() {
+      double length = double.parse(_length.text);
+      double width = double.parse(_width.text);
+      _res = width * length;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
 
     return Form(
         key: _formKey,
@@ -38,14 +51,15 @@ class MyFormState extends State{
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text('Длина'),
-                SizedBox(width: 30,),
-                SizedBox(height: 65,),
+                const Text('Длина'),
+                const SizedBox(width: 30,),
+                const SizedBox(height: 65,),
                 Flexible(child: TextFormField(
                   textAlignVertical: TextAlignVertical.bottom,
-                    controller: _numb,onChanged: (value) {}, validator: (value){
-                  if (double.tryParse(value!) == null)
+                    controller: _length, validator: (length){
+                  if (double.tryParse(length!) == null) {
                     return 'Warning';
+                  }
                 }),
                 ),
               ],
@@ -54,31 +68,32 @@ class MyFormState extends State{
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text('Ширина'),
-                SizedBox(width: 20,),
-                SizedBox(height: 65,),
+                const Text('Ширина'),
+                const SizedBox(width: 20,),
+                const SizedBox(height: 65,),
                 Flexible(child: TextFormField(
                     textAlignVertical: TextAlignVertical.bottom,
-                    controller: _numb2,onChanged: (value2) {}, validator: (value2){
-                  if (double.tryParse(value2!) == null)
+                    controller: _width,onChanged: (value2) {}, validator: (width){
+                  if (double.tryParse(width!) == null) {
                     return 'Warning';
+                  }
                 }),
                 ),
               ],
             ),
 
-
-
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             ElevatedButton(onPressed: () {
-              if (_formKey.currentState!.validate()){
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('OK'), backgroundColor: Colors.green,),
-                );
-              }
+
+              _formKey.currentState!.validate();
+              _convertLeng();
+              _convertWid();
+              _count();
             },
+
             child: const Text('Check', style: TextStyle(color: Colors.white),),
             ),
+            Text('$length * $width= $_res'),
           ],
         ),
     );
