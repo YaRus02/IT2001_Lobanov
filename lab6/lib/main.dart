@@ -38,7 +38,9 @@ class MyFormState extends State{
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(child: Text('Длина'),),
+                Text('Длина'),
+                SizedBox(width: 30,),
+                SizedBox(height: 65,),
                 Flexible(child: TextFormField(
                   textAlignVertical: TextAlignVertical.bottom,
                     controller: _numb,onChanged: (value) {}, validator: (value){
@@ -52,7 +54,9 @@ class MyFormState extends State{
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(child: Text('Ширина'),),
+                Text('Ширина'),
+                SizedBox(width: 20,),
+                SizedBox(height: 65,),
                 Flexible(child: TextFormField(
                     textAlignVertical: TextAlignVertical.bottom,
                     controller: _numb2,onChanged: (value2) {}, validator: (value2){
