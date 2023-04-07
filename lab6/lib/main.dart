@@ -21,23 +21,51 @@ class MyFormState extends State{
   final _formKey = GlobalKey<FormState>();
   double _res = 0;
   final _numb = TextEditingController();
-  String _inpNumb = '';
+  final _numb2 = TextEditingController();
+
+
 
   
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding:  const EdgeInsets.all(10.0),
-      child: Form(
+
+
+    return Form(
         key: _formKey,
         child: Column(
           children: <Widget> [
-            const Text('Name', style: TextStyle(fontSize: 20.0),),
-            TextFormField(controller: _numb,onChanged: (value) {}, validator: (value){
-              if (double.tryParse(value!) == null) return 'Warning';
-            }),
-            const SizedBox(height: 20.0),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(child: Text('Длина'),),
+                Flexible(child: TextFormField(
+                  textAlignVertical: TextAlignVertical.bottom,
+                    controller: _numb,onChanged: (value) {}, validator: (value){
+                  if (double.tryParse(value!) == null)
+                    return 'Warning';
+                }),
+                ),
+              ],
+            ),
+
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(child: Text('Ширина'),),
+                Flexible(child: TextFormField(
+                    textAlignVertical: TextAlignVertical.bottom,
+                    controller: _numb2,onChanged: (value2) {}, validator: (value2){
+                  if (double.tryParse(value2!) == null)
+                    return 'Warning';
+                }),
+                ),
+              ],
+            ),
+
+
+
+            SizedBox(height: 10,),
             ElevatedButton(onPressed: () {
               if (_formKey.currentState!.validate()){
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -47,10 +75,8 @@ class MyFormState extends State{
             },
             child: const Text('Check', style: TextStyle(color: Colors.white),),
             ),
-            Text('$_numb.text + $_numb.text'),
           ],
         ),
-      ),
     );
   }
 }
