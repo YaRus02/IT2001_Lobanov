@@ -11,7 +11,7 @@ void main() => runApp(
   MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Scaffold(
-      appBar: AppBar(title: const Text('Форма ввода'),),
+      appBar: AppBar(title: const Text('калькулятор площади'),),
       body: const MyForm()
     ),
   )
@@ -24,13 +24,19 @@ class MyFormState extends State{
   final _width = TextEditingController();
   double width = 0;
   double length = 0;
+  String message = 'Введите данные';
 
   void _convertLeng() {
-    length = double.parse(_length.text);
+    setState(() {
+      length = double.parse(_length.text);
+    });
+
   }
 
   void _convertWid() {
-    width = double.parse(_width.text);
+    setState(() {
+      width = double.parse(_width.text);
+    });
   }
 
   void _count() {
@@ -58,8 +64,9 @@ class MyFormState extends State{
                   textAlignVertical: TextAlignVertical.bottom,
                     controller: _length, validator: (length){
                   if (double.tryParse(length!) == null) {
-                    return 'Warning';
+                    return 'Укажите адекватные данные';
                   }
+                  return null;
                 }),
                 ),
               ],
@@ -75,7 +82,7 @@ class MyFormState extends State{
                     textAlignVertical: TextAlignVertical.bottom,
                     controller: _width,onChanged: (value2) {}, validator: (width){
                   if (double.tryParse(width!) == null) {
-                    return 'Warning';
+                    return 'Укажите адекватные данные';
                   }
                 }),
                 ),
@@ -84,16 +91,23 @@ class MyFormState extends State{
 
             const SizedBox(height: 10,),
             ElevatedButton(onPressed: () {
-
-              _formKey.currentState!.validate();
-              _convertLeng();
-              _convertWid();
-              _count();
+              setState(() {
+                _formKey.currentState!.validate();
+                if (_formKey.currentState!.validate()) {
+                  _convertLeng();
+                  _convertWid();
+                  _count();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text ('Произведено успешное вычисление!')),);
+                }
+              });
             },
 
-            child: const Text('Check', style: TextStyle(color: Colors.white),),
+            child: const Text('Расчитать', style: TextStyle(color: Colors.white),),
             ),
-            Text('$length * $width= $_res'),
+
+            Text(_res != 0 ? '$length * $width= $_res' : message),
+
           ],
         ),
     );
