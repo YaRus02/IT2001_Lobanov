@@ -66,7 +66,6 @@ class MyFormState extends State{
                   if (double.tryParse(length!) == null) {
                     return 'Укажите адекватные данные';
                   }
-                  return null;
                 }),
                 ),
               ],
@@ -105,8 +104,9 @@ class MyFormState extends State{
 
             child: const Text('Расчитать', style: TextStyle(color: Colors.white),),
             ),
+            SizedBox(height: 40,),
 
-            Text(_res != 0 ? '$length * $width= $_res' : message),
+            Text(_res != 0 ? '$length * $width= $_res' : message, style: TextStyle(fontSize: 50),),
 
           ],
         ),
