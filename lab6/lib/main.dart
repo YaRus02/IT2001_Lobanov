@@ -106,7 +106,7 @@ class MyFormState extends State{
             ),
             SizedBox(height: 40,),
 
-            Text(_res != 0 ? '$length * $width= $_res' : message, style: TextStyle(fontSize: 50),),
+            Text(_res != 0 ? '$length * $width= $_res' : message, style: TextStyle(fontSize: 25),),
 
           ],
         ),
