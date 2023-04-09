@@ -42,16 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
         MaterialPageRoute(
           builder: (context) => SecondPage(),
         ));
-    setState(() {
       acceptValue = result;
-    });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(acceptValue),
       ),
     );
   }
-
 
 
   @override
@@ -68,8 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               children: [
                 ElevatedButton(onPressed: () {
-                  Navigator.pushNamed(context, '/sec');
                   _awaitReturnValue(context);
+                  Navigator.pushNamed(context, '/sec');
+
 
                 }, child: Text('Приступить к выбору'),),
               ],

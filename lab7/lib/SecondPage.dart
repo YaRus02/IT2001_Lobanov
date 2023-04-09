@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab7/main.dart';
 
 class SecondPage extends StatelessWidget {
     SecondPage({super.key});
@@ -20,10 +21,12 @@ class SecondPage extends StatelessWidget {
               transData = 'Да!';
               String textToSendBack = transData;
               Navigator.pop(context, textToSendBack);
+              Navigator.pop(context, textToSendBack);
             }, child: const Text('Да!')),
             ElevatedButton(onPressed: () {
               transData = 'Нет!';
               String textToSendBack = transData;
+              Navigator.pop(context, textToSendBack);
               Navigator.pop(context, textToSendBack);
             }, child: const Text('Нет!')),
           ],
