@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab7/SecondPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +13,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/' : (context) => const MyHomePage(title: 'Возвращение значения',),
+        '/sec' : (context) => const SecondPage(),
+      },
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
