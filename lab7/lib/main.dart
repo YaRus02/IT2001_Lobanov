@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
-        '/' : (context) => const MyHomePage(title: 'Возвращение значения',),
         '/sec' : (context) => const SecondPage(),
       },
     );
@@ -46,6 +45,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Column(
+              children: [
+                ElevatedButton(onPressed: () {
+                  Navigator.pushNamed(context, '/sec');
+                }, child: Text('Приступить к выбору')),
+              ],
+            )
           ],
         ),
       ),
