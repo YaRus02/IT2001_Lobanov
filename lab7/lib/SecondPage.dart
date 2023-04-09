@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lab7/main.dart';
 
 class SecondPage extends StatelessWidget {
     SecondPage({super.key});
@@ -18,13 +17,13 @@ class SecondPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(onPressed: () {
-              transData = 'Да!';
+              transData = 'Вы выбрали: "Да!"';
               String textToSendBack = transData;
               Navigator.pop(context, textToSendBack);
               Navigator.pop(context, textToSendBack);
             }, child: const Text('Да!')),
             ElevatedButton(onPressed: () {
-              transData = 'Нет!';
+              transData = 'Вы выбрали: "Нет!"';
               String textToSendBack = transData;
               Navigator.pop(context, textToSendBack);
               Navigator.pop(context, textToSendBack);
