@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
-        '/sec' : (context) => const SecondPage(),
+        '/sec' : (context) => SecondPage(),
       },
     );
   }
@@ -34,6 +34,26 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  String acceptValue = '';
+
+  void _awaitReturnValue(BuildContext context) async {
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SecondPage(),
+        ));
+    setState(() {
+      acceptValue = result;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(acceptValue),
+      ),
+    );
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -49,6 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(onPressed: () {
                   Navigator.pushNamed(context, '/sec');
+                  _awaitReturnValue(context);
+
                 }, child: Text('Приступить к выбору'),),
               ],
             )

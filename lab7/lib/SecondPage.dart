@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+    SecondPage({super.key});
+
+  String transData = '';
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +17,14 @@ class SecondPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(onPressed: () {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Да!'),
-                ),
-              );
+              transData = 'Да!';
+              String textToSendBack = transData;
+              Navigator.pop(context, textToSendBack);
             }, child: const Text('Да!')),
             ElevatedButton(onPressed: () {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Нет!'),
-                ),
-              );
+              transData = 'Нет!';
+              String textToSendBack = transData;
+              Navigator.pop(context, textToSendBack);
             }, child: const Text('Нет!')),
           ],
         ),
