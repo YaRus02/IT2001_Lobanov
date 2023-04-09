@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Возвращение значения'),
       ),
       body: Center(
         child: Column(
