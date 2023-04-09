@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -50,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(onPressed: () {
                   Navigator.pushNamed(context, '/sec');
-                }, child: Text('Приступить к выбору')),
+                }, child: Text('Приступить к выбору'),),
               ],
             )
           ],

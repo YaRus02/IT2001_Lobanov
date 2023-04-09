@@ -15,6 +15,7 @@ class SecondPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(onPressed: () {
+              Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Да!'),
@@ -22,6 +23,7 @@ class SecondPage extends StatelessWidget {
               );
             }, child: const Text('Да!')),
             ElevatedButton(onPressed: () {
+              Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Нет!'),
