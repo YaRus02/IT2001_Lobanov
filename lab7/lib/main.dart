@@ -66,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(onPressed: () {
                   _awaitReturnValue(context);
-                  Navigator.pushNamed(context, '/sec');
                 }, child: const Text('Приступить к выбору'),),
               ],
             )

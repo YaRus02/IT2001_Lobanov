@@ -20,12 +20,10 @@ class SecondPage extends StatelessWidget {
               transData = 'Вы выбрали: "Да!"';
               String textToSendBack = transData;
               Navigator.pop(context, textToSendBack);
-              Navigator.pop(context, textToSendBack);
             }, child: const Text('Да!')),
             ElevatedButton(onPressed: () {
               transData = 'Вы выбрали: "Нет!"';
               String textToSendBack = transData;
-              Navigator.pop(context, textToSendBack);
               Navigator.pop(context, textToSendBack);
             }, child: const Text('Нет!')),
           ],
