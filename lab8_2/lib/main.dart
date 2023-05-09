@@ -3,42 +3,53 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-Future<List<Photo>> fetchPhotos(http.Client client) async {
-  final response = await
-  client.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
-  return compute(parsePhotos, response.body);
+import 'package:intl/intl.dart';
+
+Future<List<News>> fetchNews(http.Client client) async {
+  final response = await client
+      .get(Uri.parse('https://kubsau.ru/api/getNews.php?key=6df2f5d38d4e16b5a923a6d4873e2ee295d0ac90'));
+  return compute(parseNews, response.body);
 }
-List<Photo> parsePhotos(String responseBody) {
+
+List<News> parseNews(String responseBody) {
   final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
-  return parsed.map<Photo>((json) => Photo.fromJson(json)).toList();
+  return parsed.map<News>((json) => News.fromJson(json)).toList();
 }
-class Photo {
-  final int albumId;
+
+class News {
   final int id;
+  final String active_from;
   final String title;
-  final String url;
-  final String thumbnailUrl;
-  const Photo({
-    required this.albumId,
+  final String preview_text;
+  final String preview_picture_src;
+  final String detail_text;
+
+  const News({
     required this.id,
+    required this.active_from,
     required this.title,
-    required this.url,
-    required this.thumbnailUrl,
+    required this.preview_text,
+    required this.preview_picture_src,
+    required this.detail_text,
   });
-  factory Photo.fromJson(Map<String, dynamic> json) {
-    return Photo(
-      albumId: json['albumId'] as int,
-      id: json['id'] as int,
-      title: json['title'] as String,
-      url: json['url'] as String,
-      thumbnailUrl: json['thumbnailUrl'] as String,
+
+  factory News.fromJson(Map<String, dynamic> json) {
+    return News(
+      id: json['ID'] as int,
+      active_from: json['ACTIVE_FROM'] as String,
+      title: json['TITLE'] as String,
+      preview_text: json['PREVIEW_TEXT'] as String,
+      preview_picture_src: json['PREVIEW_PICTURE_SRC'] as String,
+      detail_text: json['DETAIL_TEXT'] as String,
     );
   }
 }
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     const appTitle = 'Фотогалерея';
@@ -48,17 +59,19 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: FutureBuilder<List<Photo>>(
-        future: fetchPhotos(http.Client()),
+      body: FutureBuilder<List<News>>(
+        future: fetchNews(http.Client()),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
@@ -79,7 +92,8 @@ class MyHomePage extends StatelessWidget {
 
 class PhotosList extends StatelessWidget {
   const PhotosList({Key? key, required this.photos}) : super(key: key);
-  final List<Photo> photos;
+  final List<News> photos;
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
