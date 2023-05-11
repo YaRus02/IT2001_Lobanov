@@ -122,43 +122,56 @@ class NewsList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
               Image.network(news[index].preview_picture_src),
-              const Padding(
-                  padding: EdgeInsets.all(5.0)),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10,0,10,0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0,10,0,10),
-                      child: Text(news[index].active_from),
-                    ),
-                    Text(news[index].title,
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(fontWeight: FontWeight.bold)),
-                    const Padding(
-                        padding: EdgeInsets.all(5.0)),
-                    Text(intl.Bidi.stripHtmlIfNeeded(news[index].preview_text)),
-                    Padding(
-                      padding:const EdgeInsets.fromLTRB(0,10,0,10),
-                      child: Expanded(
-                        child: Text(intl.Bidi.stripHtmlIfNeeded(news[index].detail_text)),
-                      ),
-                    )
-
-
-                  ],
-                ),
-
-              )
+              Text(news[index].active_from),
+              Text(news[index].title),
+              Text(news[index].preview_text),
+              Text(news[index].detail_text),
             ],
-          )
+          ),
+          // child: Container(
+          //   child: ListView(
+          //     scrollDirection: Axis.vertical,
+          //     children: [
+          //       Text(news[index].detail_text),
+          //     ],
+          //   ),
+          // ),
         );
       },
     );
   }
 }
+// return Card(
+// child: Column(
+// mainAxisSize: MainAxisSize.min,
+// children: [
+// Image.network(news[index].preview_picture_src),
+// const Padding(
+// padding: EdgeInsets.all(5.0)),
+// Padding(
+// padding: const EdgeInsets.fromLTRB(10,0,10,0),
+// child: Column(
+// mainAxisSize: MainAxisSize.min,
+// crossAxisAlignment: CrossAxisAlignment.start,
+// children: [
+// Padding(
+// padding: const EdgeInsets.fromLTRB(0,10,0,10),
+// child: Text(news[index].active_from),
+// ),
+// Text(news[index].title,
+// textAlign: TextAlign.left,
+// style: const TextStyle(fontWeight: FontWeight.bold)),
+// const Padding(
+// padding: EdgeInsets.all(5.0)),
+// Text(intl.Bidi.stripHtmlIfNeeded(news[index].preview_text)),
+// Padding(
+// padding:const EdgeInsets.fromLTRB(0,10,0,10),
+// child: Expanded(
+// child: Text(intl.Bidi.stripHtmlIfNeeded(news[index].detail_text)),
+// ),
+// )
+//
+//
+// ],
