@@ -38,4 +38,14 @@ class CoffeeMachine {
     _cash = value;
   }
 
+  isAvailable() {
+    if (_coffeeBeans >= 50 && _water >= 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  
+
 }
