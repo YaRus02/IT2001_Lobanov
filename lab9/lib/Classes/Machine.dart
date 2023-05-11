@@ -38,7 +38,7 @@ class CoffeeMachine {
     _cash = value;
   }
 
-  isAvailable() {
+  bool isAvailable() {
     if (_coffeeBeans >= 50 && _water >= 100) {
       return true;
     } else {
@@ -46,6 +46,17 @@ class CoffeeMachine {
     }
   }
 
-  
+  void subatractResouces() {
+
+    if (isAvailable()){
+      _coffeeBeans -= 50;
+      _water -= 100;
+    }
+
+    
+
+  }
+
+
 
 }
