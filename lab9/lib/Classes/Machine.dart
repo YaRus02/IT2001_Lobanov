@@ -46,17 +46,21 @@ class CoffeeMachine {
     }
   }
 
-  void subatractResouces() {
-
-    if (isAvailable()){
+  void subtractResources() {
+    if (isAvailable()) {
       _coffeeBeans -= 50;
       _water -= 100;
     }
-
-    
-
   }
 
 
+  void makingCoffee() {
+    if (isAvailable()) {
+      subtractResources();
+      print('Ресурсов хватает!');
+    } else {
+      print('Ресурсов НЕ хватает!');
+    }
+  }
 
 }
