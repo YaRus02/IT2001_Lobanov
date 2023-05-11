@@ -23,7 +23,6 @@ class News {
   final String title;
   final String preview_text;
   final String preview_picture_src;
-  final String detail_text;
 
   const News({
     required this.id,
@@ -31,7 +30,6 @@ class News {
     required this.title,
     required this.preview_text,
     required this.preview_picture_src,
-    required this.detail_text,
   });
 
   factory News.fromJson(Map<String, dynamic> json) {
@@ -41,7 +39,6 @@ class News {
       title: json['TITLE'] as String,
       preview_text: json['PREVIEW_TEXT'] as String,
       preview_picture_src: json['PREVIEW_PICTURE_SRC'] as String,
-      detail_text: json['DETAIL_TEXT'] as String,
     );
   }
 }
@@ -126,7 +123,7 @@ class NewsList extends StatelessWidget {
               Image.network(news[index].preview_picture_src),
               Text(news[index].active_from),
               Text(news[index].title),
-              Text(news[index].preview_text),
+              //Text(news[index].preview_text),
               Text(news[index].detail_text),
             ],
           ),
