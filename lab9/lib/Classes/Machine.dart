@@ -10,17 +10,32 @@ class CoffeeMachine {
     return _coffeeBeans;
   }
 
+  set coffeeBeans (int value){
+    _coffeeBeans = value;
+  }
+
   int get milk {
     return _milk;
+  }
+
+  set milk (int value){
+    _milk = value;
   }
 
   int get water {
     return _water;
   }
 
+  set water (int value){
+    _water = value;
+  }
+
   int get cash {
     return _cash;
   }
 
-  
+  set cash (int value){
+    _cash = value;
+  }
+
 }
