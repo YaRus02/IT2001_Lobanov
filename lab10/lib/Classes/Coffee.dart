@@ -1,108 +1,100 @@
 import 'Coffee_inter.dart';
 import 'Enums.dart';
-import 'Resources.dart';
 
 class Cappuccino implements ICoffee {
-  final String _name = '';
-  int _coffeeBeans = 0;
-  int _water = 0;
-  int _milk = 0;
-  int _cash = 0;
-
-  final Resources _resources = Resources(30, 50, 100, 150);
 
   CoffeeTypes get type {
     return CoffeeTypes.cappuccino;
   }
 
+  @override
   String get coffeeName {
     return 'cappuccino';
   }
-
-  int get coffeBeansRequired {
-    return _coffeeBeans = _resources.cash;
+@override
+  int get coffeeBeansRequired {
+    return 30;
   }
 
+  @override
   int get waterRequired {
-    return _water = _resources.cash;
+    return 30;
   }
 
+  @override
   int get milkRequired {
-    return _milk = _resources.cash;
+    return 65;
   }
 
-  int get coffePrice {
-    return _cash = _resources.cash;
+  @override
+  int get coffeePrice {
+    return 100;
   }
 
 }
 
 class Espresso implements ICoffee {
-  final String _name = '';
-  int _coffeeBeans = 0;
-  int _water = 0;
-  int _milk = 0;
-  int _cash = 0;
-
-  final Resources _resources = Resources(30, 50, 100, 150);
 
   CoffeeTypes get type {
     return CoffeeTypes.espresso;
   }
 
+  @override
   String get coffeeName {
     return 'espresso';
   }
 
-  int get coffeBeansRequired {
-    return _coffeeBeans = _resources.cash;
+  @override
+  int get coffeeBeansRequired {
+    return 60;
   }
 
+  @override
   int get waterRequired {
-    return _water = _resources.cash;
+    return 65;
   }
 
+  @override
   int get milkRequired {
-    return _milk = _resources.cash;
+    return 0;
   }
 
-  int get coffePrice {
-    return _cash = _resources.cash;
+  @override
+  int get coffeePrice {
+    return 110;
   }
 
 }
 
 class Americano implements ICoffee {
-  final String _name = '';
-  int _coffeeBeans = 0;
-  int _water = 0;
-  int _milk = 0;
-  int _cash = 0;
-
-  final Resources _resources = Resources(30, 50, 100, 150);
 
   CoffeeTypes get type {
     return CoffeeTypes.americano;
   }
 
+  @override
   String get coffeeName {
     return 'americano';
   }
 
-  int get coffeBeansRequired {
-    return _coffeeBeans = _resources.cash;
+  @override
+  int get coffeeBeansRequired {
+    return 45;
   }
 
+  @override
   int get waterRequired {
-    return _water = _resources.cash;
+    return 50;
   }
 
+  @override
   int get milkRequired {
-    return _milk = _resources.cash;
+    return 0;
   }
 
-  int get coffePrice {
-    return _cash = _resources.cash;
+  @override
+  int get coffeePrice {
+    return 80;
   }
 
 }
