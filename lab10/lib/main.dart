@@ -3,18 +3,34 @@ import 'Classes/Machine.dart';
 import 'Classes/Resources.dart';
 
 void main () {
-  CoffeeMachine machine = CoffeeMachine(Resources(200,200,200,150));
-  print(machine.resources.coffeeBeans);
-  print(machine.resources.milk);
-  print(machine.resources.water);
+  CoffeeMachine machine = CoffeeMachine(Resources(250,250,250,250));
+  print('кофейные зерна: ${machine.resources.coffeeBeans}');
+  print('молоко: ${machine.resources.milk}');
+  print('вода: ${machine.resources.water}');
+  print('деньжата: ${machine.resources.cash}');
 
   print(machine.resources.cash);
+
   Cappuccino cappuccino = Cappuccino();
+  Espresso espresso = Espresso();
+  Americano americano = Americano();
+
   machine.makeCoffee(cappuccino);
-  print(machine.resources.coffeeBeans);
-  print(machine.resources.water);
-  print(machine.resources.milk);
-  print(machine.resources.cash);
+  print('кофейные зерна: ${machine.resources.coffeeBeans}');
+  print('молоко: ${machine.resources.milk}');
+  print('вода: ${machine.resources.water}');
+  print('деньжата: ${machine.resources.cash}');
 
+  machine.makeCoffee(espresso);
+  print('кофейные зерна: ${machine.resources.coffeeBeans}');
+  print('молоко: ${machine.resources.milk}');
+  print('вода: ${machine.resources.water}');
+  print('деньжата: ${machine.resources.cash}');
 
+  machine.makeCoffee(americano);
+  print('кофейные зерна: ${machine.resources.coffeeBeans}');
+  print('молоко: ${machine.resources.milk}');
+  print('вода: ${machine.resources.water}');
+  print('деньжата: ${machine.resources.cash}');
+  
 }
