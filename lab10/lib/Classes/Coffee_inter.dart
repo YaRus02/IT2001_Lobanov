@@ -17,7 +17,7 @@ int get milkRequired {
   return _milk;
 }
 
-int get cashRequired {
+int get coffePrice {
   return _cash;
 }
 
