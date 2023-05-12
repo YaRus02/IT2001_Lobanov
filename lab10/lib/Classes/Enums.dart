@@ -1,1 +1,1 @@
-enum coffeeTypes { espresso, cappuccino, latte, americano }
+enum CoffeeTypes { espresso, cappuccino, latte, americano }

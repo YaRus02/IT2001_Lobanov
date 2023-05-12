@@ -1,4 +1,4 @@
-class Resources {
+class Resources{
   int _coffeeBeans;
   int _water;
   int _milk;
