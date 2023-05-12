@@ -16,7 +16,7 @@ class Cappuccino implements ICoffee {
   }
 
   String get coffeeName {
-    return _name;
+    return 'cappuccino';
   }
 
   int get coffeBeansRequired {
@@ -54,7 +54,7 @@ class Espresso implements ICoffee {
   }
 
   String get coffeeName {
-    return _name;
+    return 'espresso';
   }
 
   int get coffeBeansRequired {
@@ -92,7 +92,7 @@ class Americano implements ICoffee {
   }
 
   String get coffeeName {
-    return _name;
+    return 'americano';
   }
 
   int get coffeBeansRequired {
