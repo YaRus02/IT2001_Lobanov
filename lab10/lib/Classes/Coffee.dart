@@ -9,13 +9,13 @@ class Cappuccino implements ICoffee {
   int _milk = 0;
   int _cash = 0;
 
-  final Resources _resources = Resources( 30, 50, 100, 150);
+  final Resources _resources = Resources(30, 50, 100, 150);
 
   CoffeeTypes get type {
     return CoffeeTypes.cappuccino;
   }
 
-  String get coffeeName{
+  String get coffeeName {
     return _name;
   }
 
@@ -47,15 +47,15 @@ class Espresso implements ICoffee {
   int _milk = 0;
   int _cash = 0;
 
-  final Resources _resources = Resources( 30, 50, 100, 150);
+  final Resources _resources = Resources(30, 50, 100, 150);
 
   CoffeeTypes get type {
     return CoffeeTypes.espresso;
   }
 
- String get coffeeName {
+  String get coffeeName {
     return _name;
- }
+  }
 
   int get coffeBeansRequired {
     return _coffeeBeans = _resources.cash;
@@ -85,7 +85,7 @@ class Americano implements ICoffee {
   int _milk = 0;
   int _cash = 0;
 
-  final Resources _resources = Resources( 30, 50, 100, 150);
+  final Resources _resources = Resources(30, 50, 100, 150);
 
   CoffeeTypes get type {
     return CoffeeTypes.americano;
@@ -115,4 +115,3 @@ class Americano implements ICoffee {
     return _resources;
   }
 }
-

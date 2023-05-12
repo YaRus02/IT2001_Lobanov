@@ -5,7 +5,7 @@ class ICoffee {
   int _milk = 0;
   int _cash = 0;
 
-  String get coffeeName{
+  String get coffeeName {
     return _name;
   }
 

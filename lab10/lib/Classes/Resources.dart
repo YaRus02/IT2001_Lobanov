@@ -1,4 +1,4 @@
-class Resources{
+class Resources {
   int _coffeeBeans;
   int _water;
   int _milk;
@@ -10,7 +10,7 @@ class Resources{
     return _coffeeBeans;
   }
 
-  set coffeeBeans (int value){
+  set coffeeBeans(int value) {
     _coffeeBeans = value;
   }
 
@@ -18,7 +18,7 @@ class Resources{
     return _milk;
   }
 
-  set milk (int value){
+  set milk(int value) {
     _milk = value;
   }
 
@@ -26,7 +26,7 @@ class Resources{
     return _water;
   }
 
-  set water (int value){
+  set water(int value) {
     _water = value;
   }
 
@@ -34,7 +34,7 @@ class Resources{
     return _cash;
   }
 
-  set cash (int value){
+  set cash(int value) {
     _cash = value;
   }
 }
