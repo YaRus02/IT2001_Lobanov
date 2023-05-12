@@ -3,6 +3,7 @@ import 'Enums.dart';
 import 'Resources.dart';
 
 class Cappuccino implements ICoffee {
+  final String _name = '';
   int _coffeeBeans = 0;
   int _water = 0;
   int _milk = 0;
@@ -12,6 +13,10 @@ class Cappuccino implements ICoffee {
 
   CoffeeTypes get type {
     return CoffeeTypes.cappuccino;
+  }
+
+  String get coffeeName{
+    return _name;
   }
 
   int get coffeBeansRequired {
@@ -36,6 +41,7 @@ class Cappuccino implements ICoffee {
 }
 
 class Espresso implements ICoffee {
+  final String _name = '';
   int _coffeeBeans = 0;
   int _water = 0;
   int _milk = 0;
@@ -44,8 +50,12 @@ class Espresso implements ICoffee {
   final Resources _resources = Resources( 30, 50, 100, 150);
 
   CoffeeTypes get type {
-    return CoffeeTypes.cappuccino;
+    return CoffeeTypes.espresso;
   }
+
+ String get coffeeName {
+    return _name;
+ }
 
   int get coffeBeansRequired {
     return _coffeeBeans = _resources.cash;
@@ -69,6 +79,7 @@ class Espresso implements ICoffee {
 }
 
 class Americano implements ICoffee {
+  final String _name = '';
   int _coffeeBeans = 0;
   int _water = 0;
   int _milk = 0;
@@ -77,7 +88,11 @@ class Americano implements ICoffee {
   final Resources _resources = Resources( 30, 50, 100, 150);
 
   CoffeeTypes get type {
-    return CoffeeTypes.cappuccino;
+    return CoffeeTypes.americano;
+  }
+
+  String get coffeeName {
+    return _name;
   }
 
   int get coffeBeansRequired {
