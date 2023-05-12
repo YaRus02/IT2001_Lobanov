@@ -1,9 +1,9 @@
 class ICoffee {
-  String _name = '';
-  int _coffeeBeans = 0;
-  int _water = 0;
-  int _milk = 0;
-  int _cash = 0;
+  final String _name = '';
+  final int _coffeeBeans = 0;
+  final int _water = 0;
+  final int _milk = 0;
+  final int _cash = 0;
 
   String get coffeeName {
     return _name;

@@ -10,7 +10,9 @@ class CoffeeMachine {
     return _resources;
   }
 
-  set resources(Resources value) => _resources = value;
+  void set resources(Resources value) {
+    _resources = value;
+  }
 
   bool isAvailable(ICoffee coffee) {
     return _resources.coffeeBeans >= coffee.coffeBeansRequired &&

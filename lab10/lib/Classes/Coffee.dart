@@ -35,9 +35,6 @@ class Cappuccino implements ICoffee {
     return _cash = _resources.cash;
   }
 
-  Resources checkResources() {
-    return _resources;
-  }
 }
 
 class Espresso implements ICoffee {
@@ -73,9 +70,6 @@ class Espresso implements ICoffee {
     return _cash = _resources.cash;
   }
 
-  Resources checkResources() {
-    return _resources;
-  }
 }
 
 class Americano implements ICoffee {
@@ -111,7 +105,4 @@ class Americano implements ICoffee {
     return _cash = _resources.cash;
   }
 
-  Resources checkResources() {
-    return _resources;
-  }
 }
