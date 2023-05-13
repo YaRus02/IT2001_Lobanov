@@ -1,5 +1,4 @@
 import 'package:lab11/Classes/AsyncCoffee.dart';
-
 import 'Classes/Coffee.dart';
 import 'Classes/Machine.dart';
 import 'Classes/Resources.dart';
