@@ -10,7 +10,7 @@ class CoffeeMachine {
     return _resources;
   }
 
-  void set resources(Resources value) {
+  set resources(Resources value) {
     _resources = value;
   }
 

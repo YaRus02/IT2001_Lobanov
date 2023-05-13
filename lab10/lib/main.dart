@@ -32,5 +32,5 @@ void main () {
   print('молоко: ${machine.resources.milk}');
   print('вода: ${machine.resources.water}');
   print('деньжата: ${machine.resources.cash}');
-  
+
 }
