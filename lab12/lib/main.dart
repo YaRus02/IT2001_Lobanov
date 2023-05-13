@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lab12/Classes/Pages/ControlPanel.dart';
+import 'package:lab12/Classes/Pages/Display.dart';
 
 void main() => runApp(const TabBarApp());
 
@@ -41,26 +43,8 @@ class TabBarExample extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Column(
-              children: [
-                Text('sdsd'),
-                Text('sdsd'),
-                Text('sdsd'),
-                Text('sdsd'),
-                Text('sdsd'),
-              ],
-            ),
-
-            Column(
-              children: [
-                Text('sdsd'),
-                Text('sdsd'),
-                Text('sdsd'),
-                Text('sdsd'),
-
-              ],
-            )
-
+            Display(),
+            ControlPanel(),
             // Center(
             //   child: Text("It's sunny here"),
             // ),
