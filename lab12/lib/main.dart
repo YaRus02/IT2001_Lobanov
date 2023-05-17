@@ -11,7 +11,9 @@ class TabBarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
+      //color: Colors.brown,
       home: const TabBarExample(),
+
     );
   }
 }
@@ -30,10 +32,10 @@ class TabBarExample extends StatelessWidget {
           bottom: const TabBar(
             tabs: <Widget>[
               Tab(
-                icon: Icon(Icons.cloud_outlined),
+                icon: Icon(Icons.coffee),
               ),
               Tab(
-                icon: Icon(Icons.beach_access_sharp),
+                icon: Icon(Icons.abc),
               ),
               // Tab(
               //   icon: Icon(Icons.brightness_5_sharp),
@@ -43,8 +45,10 @@ class TabBarExample extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
+
             Display(),
             ControlPanel(),
+
             // Center(
             //   child: Text("It's sunny here"),
             // ),
