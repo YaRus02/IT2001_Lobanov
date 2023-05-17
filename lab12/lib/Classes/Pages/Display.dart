@@ -113,7 +113,12 @@ class _RadioExampleState extends State<RadioExample> {
                   ),
                 ),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.coffee_maker), iconSize: 100, color: Colors.blueAccent,),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.coffee_maker),
+                iconSize: 100,
+                color: Colors.blueAccent,
+              ),
             ],
           ),
           Container(
@@ -123,11 +128,19 @@ class _RadioExampleState extends State<RadioExample> {
           ),
           Row(
             children: [
-              Flexible(child: TextFormField(
-                decoration: InputDecoration(labelText: 'Put your money here'),
-              ),),
-              ElevatedButton(onPressed: () {}, child: Icon(Icons.attach_money),),
-              ElevatedButton(onPressed: () {}, child: Icon(Icons.money_off_csred),),
+              Flexible(
+                child: TextFormField(
+                  decoration: InputDecoration(labelText: 'Put your money here'),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.attach_money),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.money_off_csred),
+              ),
               // IconButton(onPressed: () {}, icon: Icon(Icons.attach_money),),
               // IconButton(onPressed: () {}, icon: Icon(Icons.money_off),),
             ],

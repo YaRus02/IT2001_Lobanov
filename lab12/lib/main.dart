@@ -48,7 +48,7 @@ class TabBarExample extends StatelessWidget {
           children: <Widget>[
 
             RadioExample(),
-            ControlPanel(),
+            RadioExample2(),
 
             // Center(
             //   child: Text("It's sunny here"),
