@@ -29,13 +29,14 @@ class TabBarExample extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('TabBar Sample'),
+          backgroundColor: Colors.brown,
           bottom: const TabBar(
             tabs: <Widget>[
               Tab(
-                icon: Icon(Icons.coffee),
+                icon: Icon(Icons.coffee, color: Colors.white70,),
               ),
               Tab(
-                icon: Icon(Icons.abc),
+                icon: Icon(Icons.fire_truck_rounded, color: Colors.white70,),
               ),
               // Tab(
               //   icon: Icon(Icons.brightness_5_sharp),
@@ -46,7 +47,7 @@ class TabBarExample extends StatelessWidget {
         body: TabBarView(
           children: <Widget>[
 
-            Display(),
+            RadioExample(),
             ControlPanel(),
 
             // Center(
