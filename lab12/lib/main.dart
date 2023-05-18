@@ -38,21 +38,13 @@ class TabBarExample extends StatelessWidget {
               Tab(
                 icon: Icon(Icons.fire_truck_rounded, color: Colors.white70,),
               ),
-              // Tab(
-              //   icon: Icon(Icons.brightness_5_sharp),
-              // ),
             ],
           ),
         ),
         body: TabBarView(
           children: <Widget>[
-
-            RadioExample(),
-            RadioExample2(),
-
-            // Center(
-            //   child: Text("It's sunny here"),
-            // ),
+            Display(),
+            ControlPanel(),
           ],
         ),
       ),

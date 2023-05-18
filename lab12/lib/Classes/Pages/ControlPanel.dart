@@ -3,18 +3,14 @@ import 'package:lab12/Classes/Enums.dart';
 import 'package:lab12/Classes/Machine.dart';
 import 'package:lab12/Classes/Resources.dart';
 
-class RadioExample2 extends StatefulWidget {
-  const RadioExample2({super.key});
+class ControlPanel extends StatefulWidget {
+  const ControlPanel({super.key});
 
   @override
-  State<RadioExample2> createState() => _RadioExampleState2();
+  State<ControlPanel> createState() => _ControlPanel();
 }
 
-class _RadioExampleState2 extends State<RadioExample2> {
-  CoffeeTypes? _character = CoffeeTypes.espresso;
-
-// class _Display2 extends StatefulWidget {
-//   const Display({Key? key}) : super(key: key);
+class _ControlPanel extends State<ControlPanel> {
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +82,7 @@ class _RadioExampleState2 extends State<RadioExample2> {
             children: [
 
               ElevatedButton(onPressed: () {}, child: Icon(Icons.add), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
-              ElevatedButton(onPressed: () {}, child: Icon(Icons.add), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
+              ElevatedButton(onPressed: () {}, child: Icon(Icons.remove), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
 
             ],
           )

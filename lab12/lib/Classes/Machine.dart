@@ -22,12 +22,17 @@ class CoffeeMachine {
   }
 
   void subtractResources(ICoffee coffee) {
-    if (isAvailable(coffee)) {
       _resources.coffeeBeans -= coffee.coffeeBeansRequired;
       _resources.water -= coffee.waterRequired;
       _resources.milk -= coffee.milkRequired;
       _resources.cash -= coffee.coffeePrice;
-    }
+  }
+
+  void  addResources(int coffeBeans, int water, int milk, int cash) {
+    _resources.coffeeBeans += coffeBeans;
+    _resources.water += water;
+    _resources.milk += milk;
+    _resources.cash += cash;
   }
 
   void makeCoffee(ICoffee coffee) {

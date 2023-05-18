@@ -3,15 +3,15 @@ import 'package:lab12/Classes/Enums.dart';
 import 'package:lab12/Classes/Machine.dart';
 import 'package:lab12/Classes/Resources.dart';
 
-class RadioExample extends StatefulWidget {
-  const RadioExample({super.key});
+class Display extends StatefulWidget {
+  const Display({super.key});
 
   @override
-  State<RadioExample> createState() => _RadioExampleState();
+  State<Display> createState() => _Display();
 }
 
-class _RadioExampleState extends State<RadioExample> {
-  CoffeeTypes? _character = CoffeeTypes.espresso;
+class _Display extends State<Display> {
+  CoffeeTypes? _coffee = CoffeeTypes.cappuccino;
 
 // class _Display2 extends StatefulWidget {
 //   const Display({Key? key}) : super(key: key);
@@ -77,10 +77,10 @@ class _RadioExampleState extends State<RadioExample> {
                         title: Text('Capuccino'),
                         leading: Radio<CoffeeTypes>(
                           value: CoffeeTypes.cappuccino,
-                          groupValue: _character,
+                          groupValue: _coffee,
                           onChanged: (CoffeeTypes? value) {
                             setState(() {
-                              _character = value;
+                              _coffee = value;
                             });
                           },
                         ),
@@ -89,10 +89,10 @@ class _RadioExampleState extends State<RadioExample> {
                         title: Text('Espresso'),
                         leading: Radio<CoffeeTypes>(
                           value: CoffeeTypes.espresso,
-                          groupValue: _character,
+                          groupValue: _coffee,
                           onChanged: (CoffeeTypes? value) {
                             setState(() {
-                              _character = value;
+                              _coffee = value;
                             });
                           },
                         ),
@@ -101,10 +101,10 @@ class _RadioExampleState extends State<RadioExample> {
                         title: Text('Americano'),
                         leading: Radio<CoffeeTypes>(
                           value: CoffeeTypes.americano,
-                          groupValue: _character,
+                          groupValue: _coffee,
                           onChanged: (CoffeeTypes? value) {
                             setState(() {
-                              _character = value;
+                              _coffee = value;
                             });
                           },
                         ),
