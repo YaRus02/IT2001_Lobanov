@@ -186,7 +186,7 @@ class _ControlPanel extends State<ControlPanel> {
                         _subtractResources();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                              content: Text('Resources added successfully!')),
+                              content: Text('Resources subtracted successfully!')),
                         );
                       }
                     },
