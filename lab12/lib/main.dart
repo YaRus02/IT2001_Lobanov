@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lab12/Classes/Machine.dart';
 import 'package:lab12/Classes/Pages/ControlPanel.dart';
 import 'package:lab12/Classes/Pages/Display.dart';
+import 'package:lab12/Classes/Resources.dart';
 
 void main() => runApp(const TabBarApp());
 
@@ -11,15 +13,21 @@ class TabBarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
-      //color: Colors.brown,
-      home: const TabBarExample(),
-
+      home: TabBarBuild(),
     );
   }
 }
+class TabBarBuild extends StatefulWidget {
+  const TabBarBuild({Key? key}) : super(key: key);
 
-class TabBarExample extends StatelessWidget {
-  const TabBarExample({super.key});
+  @override
+  _TabBarBuildState createState() => _TabBarBuildState();
+}
+
+class _TabBarBuildState extends State<TabBarBuild> {
+  CoffeeMachine machine = CoffeeMachine(Resources(0, 0, 0, 0));
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +51,8 @@ class TabBarExample extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Display(),
-            ControlPanel(),
+            Display(machine: machine),
+            ControlPanel(machine: machine),
           ],
         ),
       ),

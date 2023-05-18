@@ -4,7 +4,9 @@ import 'package:lab12/Classes/Machine.dart';
 import 'package:lab12/Classes/Resources.dart';
 
 class ControlPanel extends StatefulWidget {
-  const ControlPanel({super.key});
+  final CoffeeMachine machine;
+  const ControlPanel({Key? key, required this.machine}) : super(key: key);
+
 
   @override
   State<ControlPanel> createState() => _ControlPanel();
@@ -81,7 +83,7 @@ class _ControlPanel extends State<ControlPanel> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
 
-              ElevatedButton(onPressed: () {}, child: Icon(Icons.add), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
+              ElevatedButton(onPressed: () {widget}, child: Icon(Icons.add), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
               ElevatedButton(onPressed: () {}, child: Icon(Icons.remove), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
 
             ],

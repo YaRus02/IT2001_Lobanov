@@ -4,7 +4,8 @@ import 'package:lab12/Classes/Machine.dart';
 import 'package:lab12/Classes/Resources.dart';
 
 class Display extends StatefulWidget {
-  const Display({super.key});
+  final CoffeeMachine machine;
+  const Display({Key? key, required this.machine}) : super(key: key);
 
   @override
   State<Display> createState() => _Display();
