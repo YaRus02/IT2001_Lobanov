@@ -38,13 +38,13 @@ class _ControlPanel extends State<ControlPanel> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       // crossAxisAlignment: CrossAxisAlignment.stret,
-                      children: const [
+                      children:  [
                         Text('Resources: ', style: TextStyle(
                                 fontSize: 30, fontWeight: FontWeight.bold)),
-                        Text('Money: ', style: TextStyle(fontSize: 20),),
-                        Text('Water: ', style: TextStyle(fontSize: 20),),
-                        Text('Milk: ', style: TextStyle(fontSize: 20),),
-                        Text('Beans: ', style: TextStyle(fontSize: 20),),
+                        Text('Money: ${widget.machine.resources.cash}', style: TextStyle(fontSize: 20),),
+                        Text('Water: ${widget.machine.resources.water}', style: TextStyle(fontSize: 20),),
+                        Text('Milk: ${widget.machine.resources.milk}', style: TextStyle(fontSize: 20),),
+                        Text('Beans: ${widget.machine.resources.coffeeBeans}', style: TextStyle(fontSize: 20),),
                       ],
                     ),
                   ),
@@ -83,7 +83,7 @@ class _ControlPanel extends State<ControlPanel> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
 
-              ElevatedButton(onPressed: () {widget}, child: Icon(Icons.add), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
+              ElevatedButton(onPressed: () {}, child: Icon(Icons.add), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
               ElevatedButton(onPressed: () {}, child: Icon(Icons.remove), style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),),),
 
             ],
