@@ -19,7 +19,7 @@ class _Display extends State<Display> {
   Cappuccino cappuccino = Cappuccino();
   Espresso espresso = Espresso();
   Americano americano = Americano();
-  String result = '';
+  String _process = '';
 
   void _addResources() {
     int beans = 0;
@@ -39,7 +39,27 @@ class _Display extends State<Display> {
   void _clearTextField() {
     _cashController.clear();
   }
-  
+
+  Future<void> _makeCoffee() async {
+    if (_coffee != null) {
+      setState(() {
+        _process = 'Start process of making ${_coffee!.coffeeName}';
+      });
+
+      if (widget.machine.isAvailable(_coffee!)) {
+        await widget.machine.makeCoffee(_coffee!);
+
+        setState(() {
+          _process = 'Process of making ${_coffee!.coffeeName} is completed';
+        });
+      } else {
+        setState(() {
+          _process = 'Not enough resources for ${_coffee!.coffeeName}!';
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +103,9 @@ class _Display extends State<Display> {
                             'Your money: ${widget.machine.resources.cash}',
                             style: const TextStyle(fontSize: 15),
                           ),
+                          SizedBox(height: 10,),
+                          Flexible(child: Text(_process, style: TextStyle(fontSize: 15),),)
+
                         ],
                       ),
                     ),
@@ -135,7 +158,7 @@ class _Display extends State<Display> {
                 IconButton(
                   onPressed: () {
                     if (_coffee != null) {
-                      widget.machine.makeCoffee(_coffee!);
+                      _makeCoffee();
                     }
                   },
                   icon: Icon(Icons.coffee_maker),

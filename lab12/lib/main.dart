@@ -25,7 +25,7 @@ class TabBarBuild extends StatefulWidget {
 }
 
 class _TabBarBuildState extends State<TabBarBuild> {
-  CoffeeMachine machine = CoffeeMachine(Resources(220, 220, 220, 220));
+  CoffeeMachine machine = CoffeeMachine(Resources(200, 200, 200, 200));
 
 
 

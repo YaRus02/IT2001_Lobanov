@@ -185,7 +185,7 @@ class _ControlPanel extends State<ControlPanel> {
                       if (_formKey.currentState!.validate()) {
                         _subtractResources();
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
+                            const SnackBar(
                               content: Text('Resources subtracted successfully!')),
                         );
                       }

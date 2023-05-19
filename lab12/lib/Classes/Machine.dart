@@ -37,7 +37,7 @@ class CoffeeMachine {
     _resources.cash += cash;
   }
 
-  Future<String> makeCoffee(ICoffee coffee) async {
+  Future<void> makeCoffee(ICoffee coffee) async {
     if (isAvailable(coffee)) {
       await bwater();
       await bcoffee(coffee);
@@ -45,10 +45,8 @@ class CoffeeMachine {
         await mixmilkWcoffee();
       }
       subtractResources(coffee);
-      return ' process of making ${coffee.coffeeName} is completed';
-
     } else {
-      return ('not enough resources for ${coffee.coffeeName}!');
+
     }
   }
 }
