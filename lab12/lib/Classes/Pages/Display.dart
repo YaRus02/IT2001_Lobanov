@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab12/Classes/Enums.dart';
 import 'package:lab12/Classes/Machine.dart';
-import 'package:lab12/Classes/Resources.dart';
 
 class Display extends StatefulWidget {
   final CoffeeMachine machine;
@@ -13,9 +12,6 @@ class Display extends StatefulWidget {
 
 class _Display extends State<Display> {
   CoffeeTypes? _coffee = CoffeeTypes.cappuccino;
-
-// class _Display2 extends StatefulWidget {
-//   const Display({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +30,11 @@ class _Display extends State<Display> {
                   padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: const [
-                      Text('Water: '),
-                      Text('Milk: '),
-                      Text('beans: '),
+                    children:  [
+                      Text('beans: ${widget.machine.resources.coffeeBeans}',),
+                      Text('Water: ${widget.machine.resources.water}'),
+                      Text('Milk: ${widget.machine.resources.milk}'),
+
                     ],
                   ),
                 ),
@@ -51,13 +48,13 @@ class _Display extends State<Display> {
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text('Coffee Maker',
+                      children:  [
+                        const Text('Coffee Maker',
                             style: TextStyle(
                                 fontSize: 30, fontWeight: FontWeight.bold)),
                         Text(
-                          'Your money: ',
-                          style: TextStyle(fontSize: 15),
+                          'Your money: ${widget.machine.resources.cash}',
+                          style: const TextStyle(fontSize: 15),
                         ),
                       ],
                     ),
@@ -142,8 +139,6 @@ class _Display extends State<Display> {
                 onPressed: () {},
                 child: Icon(Icons.money_off_csred),
               ),
-              // IconButton(onPressed: () {}, icon: Icon(Icons.attach_money),),
-              // IconButton(onPressed: () {}, icon: Icon(Icons.money_off),),
             ],
           )
         ],
