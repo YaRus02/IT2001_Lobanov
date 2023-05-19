@@ -13,7 +13,7 @@ class Display extends StatefulWidget {
 }
 
 class _Display extends State<Display> {
-  CoffeeTypes? _coffee;
+  ICoffee? _coffee;
   int cash = 0;
   var _cashController = TextEditingController();
   Cappuccino cappuccino = Cappuccino();
@@ -39,30 +39,7 @@ class _Display extends State<Display> {
   void _clearTextField() {
     _cashController.clear();
   }
-
-  Future <String> _makeCoffee() async {
-      if (_coffee != null) {
-        ICoffee coffee;
-        switch (_coffee) {
-          case CoffeeTypes.cappuccino:
-            coffee = Cappuccino();
-            break;
-          case CoffeeTypes.espresso:
-            coffee = Espresso();
-            break;
-          case CoffeeTypes.americano:
-            coffee = Americano();
-            break;
-          default:
-            throw Exception('Unknown coffee type');
-        }
-        return result = await widget.machine.makeCoffee(coffee);
-      }
-      return '';
-
-  }
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,51 +98,44 @@ class _Display extends State<Display> {
                     //width: 500,
                     child: Column(
                       children: [
-                        ListTile(
-                          title: Text('Capuccino'),
-                          leading: Radio<CoffeeTypes>(
-                            value: CoffeeTypes.cappuccino,
-                            groupValue: _coffee,
-                            onChanged: (CoffeeTypes? value) {
-                              setState(() {
-                                _coffee = value;
-                              });
-                            },
-                          ),
+                        RadioListTile<ICoffee>(
+                          title: Text('Cappuccino'),
+                          value: cappuccino,
+                          groupValue: _coffee,
+                          onChanged: (ICoffee? value) {
+                            setState(() {
+                              _coffee = value;
+                            });
+                          },
                         ),
-                        ListTile(
+                        RadioListTile<ICoffee>(
                           title: Text('Espresso'),
-                          leading: Radio<CoffeeTypes>(
-                            value: CoffeeTypes.espresso,
-                            groupValue: _coffee,
-                            onChanged: (CoffeeTypes? value) {
-                              setState(() {
-                                _coffee = value;
-                              });
-                            },
-                          ),
+                          value: espresso,
+                          groupValue: _coffee,
+                          onChanged: (ICoffee? value) {
+                            setState(() {
+                              _coffee = value;
+                            });
+                          },
                         ),
-                        ListTile(
+                        RadioListTile<ICoffee>(
                           title: Text('Americano'),
-                          leading: Radio<CoffeeTypes>(
-                            value: CoffeeTypes.americano,
-                            groupValue: _coffee,
-                            onChanged: (CoffeeTypes? value) {
-                              setState(() {
-                                _coffee = value;
-                              });
-                            },
-                          ),
-                        ),
+                          value: americano,
+                          groupValue: _coffee,
+                          onChanged: (ICoffee? value) {
+                            setState(() {
+                              _coffee = value;
+                            });
+                          },
+                        )
                       ],
                     ),
                   ),
                 ),
                 IconButton(
-                  onPressed: () async {
+                  onPressed: () {
                     if (_coffee != null) {
-                      await _makeCoffee();
-                      setState(() {});
+                      widget.machine.makeCoffee(_coffee!);
                     }
                   },
                   icon: Icon(Icons.coffee_maker),
