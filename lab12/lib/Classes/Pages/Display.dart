@@ -20,6 +20,7 @@ class _Display extends State<Display> {
   Espresso espresso = Espresso();
   Americano americano = Americano();
   String _process = '';
+  bool _isMakingCoffee = false;
 
   void _addResources() {
     int beans = 0;
@@ -41,9 +42,10 @@ class _Display extends State<Display> {
   }
 
   Future<void> _makeCoffee() async {
-    if (_coffee != null) {
+    if (_coffee != null  && !_isMakingCoffee) {
       setState(() {
         _process = 'Start process of making ${_coffee!.coffeeName}';
+        _isMakingCoffee = true;
       });
 
       if (widget.machine.isAvailable(_coffee!)) {
@@ -51,10 +53,12 @@ class _Display extends State<Display> {
 
         setState(() {
           _process = 'Process of making ${_coffee!.coffeeName} is completed';
+          _isMakingCoffee = false;
         });
       } else {
         setState(() {
           _process = 'Not enough resources for ${_coffee!.coffeeName}!';
+          _isMakingCoffee = false;
         });
       }
     }
@@ -105,7 +109,6 @@ class _Display extends State<Display> {
                           ),
                           SizedBox(height: 10,),
                           Flexible(child: Text(_process, style: TextStyle(fontSize: 15),),)
-
                         ],
                       ),
                     ),
@@ -122,7 +125,7 @@ class _Display extends State<Display> {
                     child: Column(
                       children: [
                         RadioListTile<ICoffee>(
-                          title: Text('Cappuccino'),
+                          title: Text('Cappuccino 100₽'),
                           value: cappuccino,
                           groupValue: _coffee,
                           onChanged: (ICoffee? value) {
@@ -132,7 +135,7 @@ class _Display extends State<Display> {
                           },
                         ),
                         RadioListTile<ICoffee>(
-                          title: Text('Espresso'),
+                          title: Text('Espresso 110₽'),
                           value: espresso,
                           groupValue: _coffee,
                           onChanged: (ICoffee? value) {
@@ -142,7 +145,7 @@ class _Display extends State<Display> {
                           },
                         ),
                         RadioListTile<ICoffee>(
-                          title: Text('Americano'),
+                          title: Text('Americano 80₽'),
                           value: americano,
                           groupValue: _coffee,
                           onChanged: (ICoffee? value) {
@@ -157,13 +160,13 @@ class _Display extends State<Display> {
                 ),
                 IconButton(
                   onPressed: () {
-                    if (_coffee != null) {
+                    if (!_isMakingCoffee) {
                       _makeCoffee();
                     }
                   },
                   icon: Icon(Icons.coffee_maker),
                   iconSize: 100,
-                  color: Colors.blueAccent,
+                  color: _isMakingCoffee ? Colors.grey : Colors.blueAccent,
                 ),
               ],
             ),
