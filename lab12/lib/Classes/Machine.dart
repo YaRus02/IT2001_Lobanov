@@ -1,3 +1,5 @@
+import 'package:lab12/Classes/AsyncCoffee.dart';
+
 import 'Coffee_inter.dart';
 import 'Resources.dart';
 
@@ -35,12 +37,18 @@ class CoffeeMachine {
     _resources.cash += cash;
   }
 
-  void makeCoffee(ICoffee coffee) {
+  Future<String> makeCoffee(ICoffee coffee) async {
     if (isAvailable(coffee)) {
+      await bwater();
+      await bcoffee(coffee);
+      if(coffee.milkRequired > 0) {
+        await mixmilkWcoffee();
+      }
       subtractResources(coffee);
-      print('Ваш ${coffee.coffeeName} готов!');
+      return ' process of making ${coffee.coffeeName} is completed';
+
     } else {
-      print('Не достаточно ресурсов для приготовления ${coffee.coffeeName}!');
+      return ('not enough resources for ${coffee.coffeeName}!');
     }
   }
 }
