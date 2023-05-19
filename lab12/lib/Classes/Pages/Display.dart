@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lab12/Classes/Enums.dart';
 import 'package:lab12/Classes/Machine.dart';
+import '../Coffee.dart';
+import '../Coffee_inter.dart';
 
 class Display extends StatefulWidget {
   final CoffeeMachine machine;
@@ -11,9 +13,13 @@ class Display extends StatefulWidget {
 }
 
 class _Display extends State<Display> {
-  CoffeeTypes? _coffee = CoffeeTypes.cappuccino;
+  CoffeeTypes? _coffee;
   int cash = 0;
   var _cashController = TextEditingController();
+  Cappuccino cappuccino = Cappuccino();
+  Espresso espresso = Espresso();
+  Americano americano = Americano();
+  String result = '';
 
   void _addResources() {
     int beans = 0;
@@ -33,6 +39,29 @@ class _Display extends State<Display> {
   void _clearTextField() {
     _cashController.clear();
   }
+
+  Future <String> _makeCoffee() async {
+      if (_coffee != null) {
+        ICoffee coffee;
+        switch (_coffee) {
+          case CoffeeTypes.cappuccino:
+            coffee = Cappuccino();
+            break;
+          case CoffeeTypes.espresso:
+            coffee = Espresso();
+            break;
+          case CoffeeTypes.americano:
+            coffee = Americano();
+            break;
+          default:
+            throw Exception('Unknown coffee type');
+        }
+        return result = await widget.machine.makeCoffee(coffee);
+      }
+      return '';
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +162,12 @@ class _Display extends State<Display> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_coffee != null) {
+                      await _makeCoffee();
+                      setState(() {});
+                    }
+                  },
                   icon: Icon(Icons.coffee_maker),
                   iconSize: 100,
                   color: Colors.blueAccent,
